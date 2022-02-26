@@ -1,9 +1,9 @@
 const adviceId = document.getElementById('advice-id')
 const quote = document.getElementById('quote')
+const diceBtn = document.getElementById('dice-btn')
 
-let apiQuote = [];
 // Get Quote from API
-async function getQuote() {
+async function getNewQuote() {
   const apiUrl = 'https://api.adviceslip.com/advice';
   try {
     const response = await fetch(apiUrl);
@@ -18,6 +18,8 @@ async function getQuote() {
   }
 }
 
+// get new quote on page load
+getNewQuote();
 
-// On Load
-getQuote();
+// get new quote when clicking dice
+diceBtn.addEventListener('click', getNewQuote);
